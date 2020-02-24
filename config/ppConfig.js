@@ -1,0 +1,33 @@
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const db = require('../models');
+
+//tell how to serialize the user
+passport.serializeUser(function(user, cb) {
+    cb(null, user.id);
+});
+
+//tell how to deserialize the user
+passport.deserializeUser(function(id, cb) {
+    //going to use an id to find a user in a database
+    db.user.findByPk(id).then(user=>{
+        cb(null, user);
+    }).catch(cb);
+});
+
+passport.use(new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password'
+}, function(email, password, cb) {
+    db.user.findOne({
+        where: { email }
+    }).then(function(user) {
+        if (!user || !user.validPassword(password)) {
+            cb(null, false);
+        } else {
+            cb(null, user);
+        }
+    }).catch(cb);
+}));
+
+module.exports = passport;
