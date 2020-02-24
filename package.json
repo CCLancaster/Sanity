@@ -36,5 +36,18 @@
     "passport-local": "^1.0.0",
     "pg": "^7.11.0",
     "sequelize": "^5.21.5"
-  }
+  },
+  "description": "Express authentication template using Passport + flash messages + custom middleware",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CCLancaster/sanity.git"
+  },
+  "author": "Connie C Lancaster",
+  "bugs": {
+    "url": "https://github.com/CCLancaster/sanity/issues"
+  },
+  "homepage": "https://github.com/CCLancaster/sanity#readme"
 }

@@ -1,17 +1,7 @@
 'use strict';
-const bcrypt = require('bcrypt');
-
 module.exports = (sequelize, DataTypes) => {
   const user = sequelize.define('user', {
-    email: {
-      type: DataTypes.STRING,
-      validate: {
-        isEmail: {
-          msg: 'Invalid email address'
-        }
-      }
-    },
-    name: {
+    firstName: {
       type:  DataTypes.STRING,
       validate: {
         len: {
@@ -21,6 +11,24 @@ module.exports = (sequelize, DataTypes) => {
       }
       
     },
+    lastName: {
+      type:  DataTypes.STRING,
+      validate: {
+        len: {
+          args: [1, 99],
+          msg: 'Name must be between 1 and 99 characters'
+        }
+      }
+      
+    },
+    email: {
+      type: DataTypes.STRING,
+      validate: {
+        isEmail: {
+          msg: 'Invalid email address'
+        }
+      }
+    },
     password: {
       type: DataTypes.STRING,
       validate: {
@@ -29,8 +37,10 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Password must be between 8 and 99 characters'
         }
       }
-    }
-  }, {
+    },
+    jokeSource: DataTypes.STRING,
+    breathCount: DataTypes.INTEGER
+  }, {   
     hooks: {
       beforeCreate: function(createdUser, options) {
         if(createdUser && createdUser.password) {
@@ -44,12 +54,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
 
+
   user.associate = function(models) {
     // associations can be defined here
+    models.user.belongsToMany(models.joke, {through: "usersJokes"});
   };
 
-  // fyi, this is a constructor function 
-  // do *not* use arrow functions as we're going to use "this"
   // this compares entered password to hashed password
   user.prototype.validPassword = function(passwordTyped) {
     return bcrypt.compareSync(passwordTyped, this.password);
@@ -61,8 +71,7 @@ module.exports = (sequelize, DataTypes) => {
     delete userData.password;
     return userData;
 
-  }
+  };
 
   return user;
 };
-
