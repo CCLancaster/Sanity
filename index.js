@@ -47,7 +47,7 @@ app.use(function(req, res, next){
 });
 
 app.get('/', function(req, res) {
-  console.log(`User is ${req.user ? req.user.name : 'not logged in'}`);
+  console.log(`User is ${req.user ? req.user.firstName : 'not logged in'}`);
   res.render('index');
 });
 
@@ -55,9 +55,13 @@ app.get('/profile', isLoggedIn, function(req, res) {
   res.render('profile');
 });
 
-app.use('/auth', require('./controllers/auth'));
 // Auth lock a controller
-app.use('/', isLoggedIn, require('./controllers/test'));
+app.use('/auth', require('./controllers/auth'));
+// app.use('/', isLoggedIn, require('./controllers/test'));
+
+// Import controllers (routes from file) here:
+app.use('/laugh', require('./controllers/laugh'));
+
 
 var server = app.listen(process.env.PORT || 3000);
 

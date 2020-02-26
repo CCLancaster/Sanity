@@ -12,7 +12,8 @@ router.post('/signup', (req, res) => {
     where: {
       email: req.body.email
     }, defaults: {
-      name: req.body.name,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
       password: req.body.password
     }
   }).then(([user, created]) => {
@@ -45,7 +46,7 @@ router.post('/login', passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/auth/login',
   successFlash: 'Welcome!',
-  failureFlash: 'Invalid username or password'
+  failureFlash: 'Invalid email or password'
 }));
 
 router.get('/logout', (req, res) => {
