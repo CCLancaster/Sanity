@@ -49,20 +49,20 @@ router.get('/faves', function(req,res) {
 // POST /laugh/faves add fave joke to db
 router.post('/', function(req,res) {
     console.log(req.body.jokeContent);
-    db.joke.findOrCreate({
+    db.user.findOne({
         where: {
-            content: req.body.jokeContent
+            id: req.user.id
         }
-    }).spread(function(joke, created) {
-        db.usersJokes.findOrCreate({
-            where: { userId: req.user }
-        }).spread(function(usersJokes, created) {
-            joke.addUser(usersJokes).then(function(usersJokes) {
-                console.log(usersJokes, "added to", joke);
-            });
-        });
-    });
-    res.redirect('/laugh');
+    }).then( function(user) {
+        db.joke.findOrCreate({ 
+            where: { content: req.body.jokeContent }
+        }).spread(function(joke, created) {
+            user.addJoke(joke).then(function(joke) {
+                console.log(joke, " added to", user);
+                res.redirect('/laugh');
+            })
+        })
+    })
 });
 
 

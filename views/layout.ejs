@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Authentication</title>
+    <title>sanity</title>
 
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -14,10 +14,11 @@
     <header>
       <nav>
         <% if (currentUser) { %> 
-          <a href="/auth/logout">Logout</a>
+          <a href="/laugh">laugh</a>
+          <a href="/auth/logout">logout</a>
           <% } else { %>
-        <a href="/auth/signup">Signup</a>
-        <a href="/auth/login">Login</a>
+        <a href="/auth/signup">signup</a>
+        <a href="/auth/login">login</a>
         <% } %>
       </nav>
     </header>
