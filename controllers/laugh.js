@@ -4,7 +4,6 @@ const db = require('../models');
 const axios = require('axios');
 
 // GET /laugh 
-
 router.get('/', function(req, res) {
     console.log(req.query.jokeType);
         //if dadzjokes
@@ -40,11 +39,7 @@ router.get('/', function(req, res) {
     })
     }
 })
-    
-   
-  
 
-// GET /laugh (think results) server will make API call and render /laugh page with resuls of api call
 
 // GET /laugh/faves show all faves from db
 router.get('/faves', function(req,res) {
@@ -53,20 +48,24 @@ router.get('/faves', function(req,res) {
 
 // POST /laugh/faves add fave joke to db
 router.post('/', function(req,res) {
-    db.jokes.create({
-        content: req.body.jokeContent
-    }).then( models.usersJokes.create({
-        usersId: req.params.userId,
-        jokesId: db.jokes.findOne({
-            where: {
-                content: req.body.jokeContent
-            }
-        }).id
-    })).then(function() {
-        res.redirect('/faves');
-    })
-    console.log(req.body.joke);
+    console.log(req.body.jokeContent);
+    db.joke.findOrCreate({
+        where: {
+            content: req.body.jokeContent
+        }
+    }).spread(function(joke, created) {
+        db.usersJokes.findOrCreate({
+            where: { userId: req.user }
+        }).spread(function(usersJokes, created) {
+            joke.addUser(usersJokes).then(function(usersJokes) {
+                console.log(usersJokes, "added to", joke);
+            });
+        });
     });
+    res.redirect('/laugh');
+});
+
+
 
 // PUT /laugh  *update* user db to include joke preference with whichever radial button is selected
 
