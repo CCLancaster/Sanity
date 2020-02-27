@@ -3,14 +3,17 @@
 <h5><a href="/laugh/faves">faves</a></h5>
 
 <div class="container">
-    <div class="radials">
-        <input type="radio" id="dadz" name="jokeType" value="dadz">
+    <form action="/laugh" method="GET">
+        <input type="radio" id="dadz" name="jokeType" value="dadz" checked>
         <label for="dadz">dad jokes</label>
         <input type="radio" id="chuck" name="jokeType" value="chuck">
         <label for="chuck">chuck norris jokes</label>
-    </div>
-    <div class="content">
+        <input type="submit" value="Get Joke">
+    </form>
+   
+    <form action="/laugh" method="POST">
         <p id="jokeContent"><%= joke.joke %></p>
-    </div>
+        <button class="btn btn-primary" type="submit">+</button>
+    </form>
 
 </div>
