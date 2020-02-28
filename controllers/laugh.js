@@ -19,7 +19,7 @@ router.get('/', function(req, res) {
             })
         })
         .then(function (req, res) {
-            console.log("jokeSource has been added")
+            console.log("jokeSource has been added:", user.jokeSource)
         })
 
         var chuckUrl = 'http://api.icndb.com/jokes/random';
@@ -35,6 +35,20 @@ router.get('/', function(req, res) {
             console.log('made it to the end of chuck successfully')
         })
     } else {
+        
+        db.user.findOne({
+            where: {
+                id: req.user.id
+            }
+        }).then(function(user) {
+            user.update({
+                jokeSource: req.query.jokeType
+            })
+        })
+        .then(function (req, res) {
+            console.log("jokeSource has been added:", user.jokeSource)
+        })
+
         var dadzUrl = 'https://icanhazdadjoke.com/';
         // Use request to call the API
         axios.get(dadzUrl, {headers:{
@@ -81,17 +95,17 @@ router.post('/', function(req,res) {
 
 
 // POST /laugh  create joke preference entry in user db to include whichever radial button is selected
-router.post('/', function(req, res) {
-    db.user.create({
-            jokeSource: req.body.jokeType
-    }).then(function (req, res) {
-        console.log(jokeSource, "has been added to", user)
-        res.redirect('/laugh');
-    })
-    .catch(function(error) {
-        console.log(error)
-      })
-});
+// router.post('/', function(req, res) {
+//     db.user.create({
+//             jokeSource: req.body.jokeType
+//     }).then(function (req, res) {
+//         console.log(jokeSource, "has been added to", user)
+//         res.redirect('/laugh');
+//     })
+//     .catch(function(error) {
+//         console.log(error)
+//       })
+// });
 
 // GET /laugh/faves/:id show specific fave from db
 router.get('/faves/:id', function(req, res) {
