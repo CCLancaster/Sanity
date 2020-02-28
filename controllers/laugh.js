@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require('../models');
 const axios = require('axios');
 
+
 // GET /laugh 
 router.get('/', function(req, res) {
     console.log(req.query.jokeType);
@@ -77,7 +78,6 @@ router.get('/faves', function(req,res) {
             id: req.user.id
         }
     }).then(function(user) {
-        console.log(user)
         user.getJokes().then(function(jokes){ 
             res.render('laugh/faves', { jokes })
 
@@ -86,10 +86,8 @@ router.get('/faves', function(req,res) {
 });
 
 
-
-// POST /laugh/faves add fave joke to db
+// POST /laugh add fave joke to db
 router.post('/', function(req,res) {
-    console.log(req.body.jokeContent);
     db.user.findOne({
         where: {
             id: req.user.id
@@ -106,6 +104,15 @@ router.post('/', function(req,res) {
     })
 });
 
+// DESTROY - DELETE /laugh/faves/:id
+router.delete('/faves', function(req, res) {
+console.log('made it to the beginning of delete')
+    db.joke.destroy({
+        where: { content: req.body.jokeContent }
+    }).then(() => {
+        res.redirect('/laugh/faves');
+    })
+});
 
 // GET /laugh/faves/:id show specific fave from db
 router.get('/faves/:id', function(req, res) {

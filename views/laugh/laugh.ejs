@@ -12,7 +12,8 @@
     </form>
    
     <form action="/laugh" method="POST">
-        <input type="text" name="jokeContent" value="<%= joke.joke %>">
+        <h1><%=joke.joke%></h1>
+        <input type="hidden" name="jokeContent" value="<%= joke.joke %>">
         <button class="btn btn-primary" type="submit">+</button>
     </form>
 

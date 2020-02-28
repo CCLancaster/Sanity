@@ -9,15 +9,20 @@ const helmet = require('helmet');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const db = require('./models');
 
+const methodOverride = require('method-override');
+
 const app = express();
 
 app.set('view engine', 'ejs');
+
+app.use(methodOverride('_method'));
 
 app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + "/public"));
 app.use(ejsLayouts);
 app.use(helmet());
+
 
 const sessionStore = new SequelizeStore({
   db: db.sequelize,

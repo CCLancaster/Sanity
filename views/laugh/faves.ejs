@@ -7,9 +7,9 @@
     <% jokes.forEach(function(joke) { %>
       <div class="well">
         <h2><%= joke.content %></h2>
-        <form method="POST" action="/pokemon">
-          <input hidden type="text" name="name" value="<%= joke.content %>">
-          <button class="btn btn-primary" type="delete">delete</button>
+        <form method="POST" action="/laugh/faves/?_method=DELETE">
+          <input hidden type="text" name="jokeContent" value="<%= joke.content %>">
+          <button class="btn btn-primary" type="delete" value="Delete">delete</button>
         </form>
       </div>
       
