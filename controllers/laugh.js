@@ -9,6 +9,19 @@ router.get('/', function(req, res) {
         //if dadzjokes
     if (req.query.jokeType === "chuck") {
         //if chuck jokes
+        db.user.findOne({
+            where: {
+                id: req.user.id
+            }
+        }).then(function(user) {
+            user.update({
+                jokeSource: req.query.jokeType
+            })
+        })
+        .then(function (req, res) {
+            console.log("jokeSource has been added")
+        })
+
         var chuckUrl = 'http://api.icndb.com/jokes/random';
         // Use request to call the API
         axios.get(chuckUrl).then( function(apiResponse) {
@@ -67,7 +80,18 @@ router.post('/', function(req,res) {
 
 
 
-// PUT /laugh  *update* user db to include joke preference with whichever radial button is selected
+// POST /laugh  create joke preference entry in user db to include whichever radial button is selected
+router.post('/', function(req, res) {
+    db.user.create({
+            jokeSource: req.body.jokeType
+    }).then(function (req, res) {
+        console.log(jokeSource, "has been added to", user)
+        res.redirect('/laugh');
+    })
+    .catch(function(error) {
+        console.log(error)
+      })
+});
 
 // GET /laugh/faves/:id show specific fave from db
 router.get('/faves/:id', function(req, res) {
