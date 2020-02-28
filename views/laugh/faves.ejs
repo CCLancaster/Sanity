@@ -1,0 +1,17 @@
+<div class="container">
+    <h1 class="text-center">laugh</h1>
+    <p class="text-center">
+      <a href="/laugh">jokes</a>
+    </p>
+  
+    <% jokes.forEach(function(joke) { %>
+      <div class="well">
+        <h2><%= joke.content %></h2>
+        <form method="POST" action="/pokemon">
+          <input hidden type="text" name="name" value="<%= joke.content %>">
+          <button class="btn btn-primary" type="delete">delete</button>
+        </form>
+      </div>
+      
+    <% }); %>
+  </div>

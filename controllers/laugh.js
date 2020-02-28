@@ -6,9 +6,10 @@ const axios = require('axios');
 // GET /laugh 
 router.get('/', function(req, res) {
     console.log(req.query.jokeType);
-        //if dadzjokes
+        
     if (req.query.jokeType === "chuck") {
         //if chuck jokes
+        //add joke preference to user db
         db.user.findOne({
             where: {
                 id: req.user.id
@@ -35,7 +36,8 @@ router.get('/', function(req, res) {
             console.log('made it to the end of chuck successfully')
         })
     } else {
-        
+        //if dadzjokes
+        //add joke preference to user db
         db.user.findOne({
             where: {
                 id: req.user.id
@@ -70,8 +72,20 @@ router.get('/', function(req, res) {
 
 // GET /laugh/faves show all faves from db
 router.get('/faves', function(req,res) {
-    res.send("this will be a page that will show your favorite jokes");
+    db.user.findOne({
+        where: {
+            id: req.user.id
+        }
+    }).then(function(user) {
+        console.log(user)
+        user.getJokes().then(function(jokes){ 
+            res.render('laugh/faves', { jokes })
+
+        })
+    })
 });
+
+
 
 // POST /laugh/faves add fave joke to db
 router.post('/', function(req,res) {
@@ -92,20 +106,6 @@ router.post('/', function(req,res) {
     })
 });
 
-
-
-// POST /laugh  create joke preference entry in user db to include whichever radial button is selected
-// router.post('/', function(req, res) {
-//     db.user.create({
-//             jokeSource: req.body.jokeType
-//     }).then(function (req, res) {
-//         console.log(jokeSource, "has been added to", user)
-//         res.redirect('/laugh');
-//     })
-//     .catch(function(error) {
-//         console.log(error)
-//       })
-// });
 
 // GET /laugh/faves/:id show specific fave from db
 router.get('/faves/:id', function(req, res) {
