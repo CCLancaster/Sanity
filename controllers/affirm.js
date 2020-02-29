@@ -5,7 +5,13 @@ const axios = require('axios');
 
 // GET /affirm shows a random affirmation (or "no affirmations yet")
     router.get('/', (req, res) => {
-        res.send('this page will show a random affirmation or a message that says there are no affirmations yet')
+        if (db.selfAffirm.id === req.user.id) {
+            let oneAffirm = db.selfAffirm[math.random(id.length)]
+            res.render('/:id', { selfAffirm: oneAffirm } );
+        } else {
+            res.render('affirm/new');
+        }
+        // res.send('this page will show a random affirmation or a message that says there are no affirmations yet')
     });
 
 // GET /affirm/index shows all affirmations

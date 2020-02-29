@@ -1,0 +1,20 @@
+<div class="container">
+    <h1 class="text-center">affirmations</h1>
+    <p class="text-center">
+      <a href="/affirm/new">new</a>
+      <a href="/affirm/index">all</a>
+    </p>
+  
+      <div class="well">
+        <h2><%= selfAffirm.content %></h2>
+        <form method="POST" action="/affirm/?_method=DELETE">
+          <input hidden type="text" name="selfAffirm" value="<%= selfAffirm.content %>">
+          <button class="btn btn-primary" type="delete" value="Delete">delete</button>
+        </form>
+        <form method="POST" action="/affirm">
+            <input hidden type="text" name="selfAffirm" value="<%= selfAffirm.content %>">
+            <button class="btn btn-primary" type="edit" value="Edit">edit</button>
+          </form>
+      </div>
+      
+  </div>
