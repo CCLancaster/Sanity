@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   selfAffirm.associate = function(models) {
     // associations can be defined here
-    models.selfaffirm.belongsTo(models.user);
+    models.selfAffirm.belongsTo(models.user);
   };
   return selfAffirm;
 };

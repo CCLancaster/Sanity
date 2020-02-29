@@ -66,6 +66,7 @@ app.use('/auth', require('./controllers/auth'));
 
 // Import controllers (routes from file) here:
 app.use('/laugh', require('./controllers/laugh'));
+app.use('/affirm', require('./controllers/affirm'));
 
 
 var server = app.listen(process.env.PORT || 3000);
