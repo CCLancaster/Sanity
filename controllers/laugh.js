@@ -114,9 +114,5 @@ console.log('made it to the beginning of delete')
     })
 });
 
-// GET /laugh/faves/:id show specific fave from db
-router.get('/faves/:id', function(req, res) {
-    res.send(`this will be a page to show a single joke`);
-});
 
 module.exports = router;

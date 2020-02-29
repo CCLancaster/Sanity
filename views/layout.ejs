@@ -14,7 +14,12 @@
     <header>
       <nav>
         <% if (currentUser) { %> 
+          <a href="/">sanity</a>
           <a href="/laugh">laugh</a>
+          <a href="/breathe">breathe</a>
+          <a href="/affirm">affirmations</a>
+          <a href="/move">move</a>
+          <a href="/help">help</a>
           <a href="/auth/logout">logout</a>
           <% } else { %>
         <a href="/auth/signup">signup</a>
@@ -23,7 +28,7 @@
       </nav>
     </header>
     <div class="container">
-      <h1>Authentication</h1>
+      <h1>sanity</h1>
       <% include partials/alerts %>
 
       <%- body %>

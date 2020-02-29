@@ -61,6 +61,7 @@ module.exports = (sequelize, DataTypes) => {
   user.associate = function(models) {
     // associations can be defined here
     models.user.belongsToMany(models.joke, {through: "usersJokes"});
+    models.user.hasMany(models.selfaffirm);
   };
 
   // this compares entered password to hashed password
