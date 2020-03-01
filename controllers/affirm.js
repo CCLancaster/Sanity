@@ -25,6 +25,14 @@ const axios = require('axios');
     });
 
 // POST /affirm (create) updates selfAffirm db with new affirmation
+    router.post('/', (req, res) => {
+        db.selfAffirm.create({ 
+                userId: req.user.id,
+                content: req.body.newAffirm 
+        }).then(() => {
+            res.redirect('affirm/index');
+        })
+    })
 
 // GET /affirm/:id (show) shows a specific message
     router.get('/:id', (req, res) => {

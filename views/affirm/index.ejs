@@ -4,11 +4,11 @@
       <a href="/affirm/new">new</a>
     </p>
   
-    <% selfAffirm.forEach(function(affirm) { %>
+    <% affirm.forEach(function(affirms) { %>
       <div class="well">
-        <h2><%= selfAffirm.content %></h2>
+        <h2><%= affirm.content %></h2>
         <form method="POST" action="/affirm/?_method=DELETE">
-          <input hidden type="text" name="selfAffirm" value="<%= selfAffirm.content %>">
+          <input hidden type="text" name="affirm" value="<%= affirm.content %>">
           <button class="btn btn-primary" type="delete" value="Delete">delete</button>
         </form>
       </div>
