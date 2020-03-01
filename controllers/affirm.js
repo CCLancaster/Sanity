@@ -6,7 +6,7 @@ const axios = require('axios');
 // GET /affirm shows a random affirmation (or "no affirmations yet")
     router.get('/', (req, res) => {
         db.selfAffirm.findOne({ where: { userId: req.user.id }}).then( id => {
-            if (id != 0) {
+            if (id != null) {
                 console.log(id);
                 let oneAffirm = id.dataValues.id
                 let affirm = id.dataValues
