@@ -3,8 +3,9 @@
 
 <form action="/affirm/<%= newAffirm.id %>?_method=PUT" method="POST">
     <label for="newAffirm">if I could tell myself anything...</label>
+    <hr />
     <textarea name="newAffirm" id="affirm" cols="30" rows="10"><%= newAffirm.content %></textarea>
-    
+    <hr />
     <input type="submit" value="+">
 </form>
 <% } else { %>
