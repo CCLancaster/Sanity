@@ -7,14 +7,14 @@
   
       <div class="well">
         <h2><%= selfAffirm.content %></h2>
-        <form method="POST" action="/affirm/?_method=DELETE">
+        <form method="GET" action="/affirm/edit/<%= selfAffirm.id %>">
+            <input hidden type="text" name="selfAffirm" value="<%= selfAffirm.content %>">
+            <button class="btn btn-primary" type="submit" value="Edit">edit</button>
+          </form>
+        <form method="POST" action="/affirm/<%= selfAffirm.id %>?_method=DELETE">
           <input hidden type="text" name="selfAffirm" value="<%= selfAffirm.content %>">
           <button class="btn btn-primary" type="delete" value="Delete">delete</button>
         </form>
-        <form method="POST" action="/affirm">
-            <input hidden type="text" name="selfAffirm" value="<%= selfAffirm.content %>">
-            <button class="btn btn-primary" type="edit" value="Edit">edit</button>
-          </form>
       </div>
       
   </div>

@@ -56,28 +56,34 @@ const axios = require('axios');
 
 // GET /affirm/edit/:id (edit) shows an edit form
     router.get('/edit/:id', (req, res) => {
-        res.send("this page shows a form to edit you affirmation")
+        let num = req.params.id;
+
+        db.selfAffirm.findOne({
+            where: {
+                id: num
+            }
+        }).then((oneAffirm) => {
+            res.render('affirm/edit', { newAffirm: oneAffirm } )
+        })
     });
 
 // PUT /affirm/:id (update) updates specific affirm messsage
     router.put('/:id', (req, res) => {
-        db.selfAffirm.create( {
-            where: {
-                id: req.params.id
-            },
-            default: {
-                content: req.body.newAffirm
-            }
+        db.selfAffirm.update( req.body.newAffirm, {
+            where: { id: req.params.id}
+        }).then(() => {
+            res.redirect(`/affirm/${req.params.id}`);
         })
-        res.redirect(`/${req.params.id}`);
     })
 
 // DELETE /affirm/:id (destroy) deletes specific affirm message
 router.delete('/:id', function(req, res) {
     console.log('made it to the beginning of delete')
+    console.log(req.body.selfAffirm)
         db.selfAffirm.destroy({
-            where: { id: req.param.id },
-            include: [req.body.affirm]
+            where: {
+                content: req.body.selfAffirm
+            }
         }).then(() => {
             res.redirect('/affirm/index');
         })

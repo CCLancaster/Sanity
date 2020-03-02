@@ -7,9 +7,9 @@
     <% selfAffirm.forEach((selfAffirm, index) => { %>
       <div class="well">
         <h2><%= selfAffirm.content %></h2>
-        <form method="POST" action="/affirm/?_method=DELETE">
-          <input hidden type="text" name="affirm" value="<%= selfAffirm.content %>">
-          <button class="btn btn-primary" type="delete" value="Delete">delete</button>
+        <form method="GET" action="/affirm/<%= selfAffirm.id %>">
+          <input hidden type="text" name="selfAffirm" value="<%= selfAffirm.content %>">
+          <button class="btn btn-primary" type="submit" value="view">view</button>
         </form>
       </div>
       
