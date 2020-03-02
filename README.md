@@ -79,10 +79,10 @@
     ![laugh landing page and options](https://github.com/CCLancaster/sanity/blob/master/public/img/laugh.png)
   
   ## affirmations
-    ![affirmations landing page and options](/public/img/affirmations.png)
+    ![affirmations landing page and options](./public/img/affirmations.png)
 
   ## breathe, help & more
-    ![breathe, help and the rest of the website](/public/img/rest.png)
+    ![breathe, help and the rest of the website](./public/img/rest.png)
 
 # Technology Used: 
 
