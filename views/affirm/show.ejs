@@ -11,9 +11,9 @@
         <h2 style="margin-bottom: 50px;"><%= selfAffirm.content %></h2>
         
         <form method="GET" action="/affirm/edit/<%= selfAffirm.id %>" style="margin-bottom: 10px;">
-            <input hidden type="text" name="selfAffirm" value="<%= selfAffirm.content %>">
+            <!-- <input hidden type="text" name="selfAffirm" value="<%= selfAffirm.content %>"> -->
             <button class="btn btn-primary" type="submit" value="Edit">edit</button>
-          </form>
+        </form>
         <form method="POST" action="/affirm/<%= selfAffirm.id %>?_method=DELETE">
           <input hidden type="text" name="selfAffirm" value="<%= selfAffirm.content %>">
           <button class="btn btn-primary" type="delete" value="Delete">delete</button>

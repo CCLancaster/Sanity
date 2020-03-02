@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
+const methodOverride = require('method-override');
+
 
 
 // GET /affirm shows a random affirmation (or "no affirmations yet")
@@ -68,9 +70,10 @@ const db = require('../models');
     });
 
 // PUT /affirm/:id (update) updates specific affirm messsage
+    router.use(methodOverride("_method"));
     router.put('/:id', (req, res) => {
-        console.log(req.params);
-        db.selfAffirm.update( req.body.newAffirm, {
+        console.log(req.body.newAffirm);
+        db.selfAffirm.update( { content: req.body.newAffirm }, {
             where: { id: req.params.id}
         }).then(() => {
             res.redirect(`/affirm/${req.params.id}`);
