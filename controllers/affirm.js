@@ -43,7 +43,15 @@ const axios = require('axios');
 
 // GET /affirm/:id (show) shows a specific message
     router.get('/:id', (req, res) => {
-        res.send("this page shows a specific affirmation")
+        let num = req.params.id;
+
+        db.selfAffirm.findOne({
+            where: {
+                id: num
+            }
+        }).then((oneAffirm) => {
+            res.render('affirm/show', { selfAffirm: oneAffirm } )
+        })
     });
 
 // GET /affirm/edit/:id (edit) shows an edit form
@@ -68,7 +76,8 @@ const axios = require('axios');
 router.delete('/:id', function(req, res) {
     console.log('made it to the beginning of delete')
         db.selfAffirm.destroy({
-            where: { id: req.param.id }
+            where: { id: req.param.id },
+            include: [req.body.affirm]
         }).then(() => {
             res.redirect('/affirm/index');
         })
