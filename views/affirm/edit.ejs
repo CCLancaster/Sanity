@@ -1,5 +1,7 @@
+
 <% if (currentUser) { %> 
-<h2>edit your positive though or affirmation</h2>
+<body id="affirm">
+<h4>edit your positive though or affirmation</h4>
 
 <form action="/affirm/<%= newAffirm.id %>?_method=PUT" method="POST">
     <label for="newAffirm">if I could tell myself anything...</label>
@@ -8,6 +10,7 @@
     <hr />
     <input type="submit" value="+">
 </form>
+</body>
 <% } else { %>
     
 <% } %>

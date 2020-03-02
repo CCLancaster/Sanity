@@ -1,3 +1,4 @@
+<body id="laugh">
 <% if (currentUser) { %> 
 <div class="container">
     <h1 class="text-center">laugh</h1>
@@ -6,7 +7,7 @@
     </p>
   
     <% jokes.forEach(function(joke) { %>
-      <div class="well">
+      <div class="well" style="background-color: #ffffff69;border-radius: 10px;padding: 20px;margin-top: 5%;">
         <h2><%= joke.content %></h2>
         <form method="POST" action="/laugh/faves/?_method=DELETE">
           <input hidden type="text" name="jokeContent" value="<%= joke.content %>">
@@ -16,6 +17,8 @@
       
     <% }); %>
   </div>
+<div class="col-sm-12" style="margin-bottom: 10%;"></div>
 <% } else { %>
 
 <% } %>
+</body>

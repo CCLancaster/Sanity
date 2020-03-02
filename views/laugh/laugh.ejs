@@ -1,9 +1,10 @@
+<body id="laugh">
 <% if (currentUser) { %> 
-<h1>laugh</h1>
+<h2>laugh</h2>
 <h5><a href="/laugh/faves">faves</a></h5>
 
 <div class="container">
-    <form action="/laugh" method="GET">
+    <form action="/laugh" method="GET" style="margin-top: 5%;">
         <input type="radio" id="dadz" name="jokeType" value="dadz" checked>
         <label for="dadz">dad jokes</label>
         <input type="radio" id="chuck" name="jokeType" value="chuck">
@@ -11,13 +12,14 @@
         <input type="submit" value="Get Joke">
     </form>
    
-    <form action="/laugh" method="POST">
+    <form action="/laugh" method="POST" style="background-color: #ffffff69;border-radius: 10px;padding: 20px;margin-top: 5%;">
         <h1><%=joke.joke%></h1>
         <input type="hidden" name="jokeContent" value="<%= joke.joke %>">
-        <button class="btn btn-primary" type="submit">+</button>
+        <button class="btn btn-primary" type="submit" style="margin-top: 10px;">+</button>
     </form>
 
 </div>
 <% } else { %>
 
 <% } %>
+</body>

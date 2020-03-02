@@ -1,8 +1,16 @@
+<body id="breathe">
+<% if (currentUser) { %> 
 <div class="col-sm-12">
     <h2>breathe</h2>
 </div>
-<hr />
-<form action="/breathe/deep" method="GET">
+
+<form action="/breathe/deep" method="GET" style="margin-top: 20%;">
     <p>ready?</p>
-    <input type="submit" value="start">
+    <input type="submit" value="start" style="padding: 10px 20px;">
 </form>
+
+<% } else { %>
+    
+<% } %>
+
+</body>

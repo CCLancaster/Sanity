@@ -1,13 +1,19 @@
+<body id="affirm">
 <% if (currentUser) { %> 
 <h2>affirmations</h2>
-<h3>enter a new positive though or affirmation</h3>
+<p class="text-center">
+    <a href="/affirm/index">all</a>
+  </p>
+<h4>enter a new positive though or affirmation</h4>
 
-<form action="/affirm" method="POST">
+<form action="/affirm" method="POST" >
     <label for="newAffirm">if I could tell myself anything...</label>
-    <textarea name="newAffirm" id="affirm" cols="30" rows="10"></textarea>
-    
+    <hr />
+    <textarea name="newAffirm" id="affirm" cols="30" rows="10" style="border-color:black;"></textarea>
+    <hr />
     <input type="submit" value="+">
 </form>
 <% } else { %>
     
 <% } %>
+</body>

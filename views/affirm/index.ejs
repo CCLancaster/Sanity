@@ -1,12 +1,14 @@
+<body id="affirm">
+  
 <% if (currentUser) { %> 
 <div class="container">
-    <h1 class="text-center">affirmations</h1>
+    <h2 class="text-center">affirmations</h2>
     <p class="text-center">
       <a href="/affirm/new">new</a>
     </p>
   
     <% selfAffirm.forEach((selfAffirm, index) => { %>
-      <div class="well">
+      <div class="well" style="background-color: #ffffff69;border-radius: 10px;padding: 20px;margin-top: 5%;">
         <h2><%= selfAffirm.content %></h2>
         <form method="GET" action="/affirm/<%= selfAffirm.id %>">
           <input hidden type="text" name="selfAffirm" value="<%= selfAffirm.content %>">
@@ -16,7 +18,8 @@
       
     <% }); %>
   </div>
-
+<div class="col-sm-12" style="margin-bottom: 10%;"></div>
 <% } else { %>
   
 <% } %>
+</body>
