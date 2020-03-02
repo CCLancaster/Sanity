@@ -15,17 +15,20 @@ const axios = require('axios');
             } else {
                 res.render('affirm/new');
             }});
-        // res.send('this page will show a random affirmation or a message that says there are no affirmations yet')
     });
 
 // GET /affirm/index shows all affirmations
     router.get('/index', (req, res) => {
-        res.send('this page shows all of your positive affirmations')
+        db.selfAffirm.findAll({ where: { userId: req.user.id}}).then( allAffirms => {
+           console.log(allAffirms);
+        //    let affirms = allAffirm.dataValues
+            res.render('affirm/index', { selfAffirm : allAffirms })
+        })
     });
 
 // GET /affirm/new shows a form to make a new affirmation
     router.get('/new', (req, res) => {
-        res.send("this page shows a form to create a positive affirmation")
+        res.render('affirm/new');
     });
 
 // POST /affirm (create) updates selfAffirm db with new affirmation
