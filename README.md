@@ -73,16 +73,16 @@
     * I had the great privelage to garner time from a User Experience Cohort student, Jen as well as the instructor Chad. Their guidence  has made my user story, flow and overall design so much better! While there is still more to learn, implement and leverage from their advice, I have provided below two versions of my wireframs, the before and after of sitting down to recieve their expertise. 
 
   ## sanity
-![sanity homepage and log in](https://github.com/CCLancaster/sanity/blob/master/public/img/sanity.png)
+![homepage](https://github.com/CCLancaster/sanity/blob/master/public/img/IMG_5737.HEIC)
   
   ## laugh
-![laugh landing page and options](https://github.com/CCLancaster/sanity/blob/master/public/img/laugh.png)
-  
+![landing page](https://github.com/CCLancaster/sanity/blob/master/public/img/laugh.png)
+
   ## affirmations
-![affirmations landing page and options](./public/img/affirmations.png)
+![landing page](https://github.com/CCLancaster/sanity/blob/master/public/img/affirmations.png)
 
   ## breathe, help & more
-![breathe, help and the rest of the website](./public/img/rest.png)
+![rest of the website](https://github.com/CCLancaster/sanity/blob/master/public/img/rest.png)
 
 # Technology Used: 
 
