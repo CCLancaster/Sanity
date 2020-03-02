@@ -70,7 +70,7 @@
 
 # Wireframes: The Design Template for Sanity
   * UX Feedack: 
-    * I had the great privelage to garner time from a User Experience Cohort student, Jen as well as the instructor Chad. Their guidence  has made my user story, flow and overall design so much better! While there is still more to learn, implement and leverage from their advice, I have provided below two versions of my wireframs, the before and after of sitting down to recieve their expertise. 
+    * I had the great privelage to garner time from a User Experience Cohort student, Jen as well as the instructor Chad. Their guidence  has made my user story, flow and overall design so much better! While there is still more to learn, implement and leverage from their advice, I have provided below the version of my wireframes that include notes I garnered after sitting down to recieve their expertise. 
 
   ## sanity
 ![homepage](https://github.com/CCLancaster/sanity/blob/master/public/img/IMG_5737.HEIC)
