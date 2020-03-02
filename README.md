@@ -2,7 +2,8 @@
 
 # Live Site: here
 
-# User Story:
+# User Story: 
+  As an overwhelmed bootcamp student, I want to use a web app to help me de-stress.
   ## User: 
   The intended audience for this application is fellow overwhelmed and stressed out bootcamp students who have to combat mental health issues such as anxiety, stress and imposter syndrom while taking on an intensive courseload 
   ## Problem: 
