@@ -1,13 +1,22 @@
 .alert {
-    color: #FFF;
+    text-align: center;
+    color: black;
     border-radius: 10px;
-    box-shadow: .1em .1em hotpink;
 }
 
 .red {
-    background-color: red;
+    color: red;
+    background-color: white;
 }
 
 .green {
-    background-color: green;
+    color: green;
+    background-color: white;
+}
+
+#sanity {
+    background-image: url(public/img/harli-marten-n7a2OJDSZns-unsplash.jpg); 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-position: center center; 
 }

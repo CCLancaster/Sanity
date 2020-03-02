@@ -7,30 +7,43 @@
 
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/public/css/style.css">
   </head>
-  <body>
-
+  <body id="sanity">
+  
     <header>
       <nav>
         <% if (currentUser) { %> 
+          <div class="col-sm-1"></div>
           <a href="/">sanity</a>
+          <div class="col-sm-1"></div>
           <a href="/laugh">laugh</a>
+          <div class="col-sm-1"></div>
           <a href="/breathe">breathe</a>
+          <div class="col-sm-1"></div>
           <a href="/affirm">affirmations</a>
+          <div class="col-sm-1"></div>
           <a href="/move">move</a>
+          <div class="col-sm-1"></div>
           <a href="/help">help</a>
+          <div class="col-sm-1"></div>
           <a href="/auth/logout">logout</a>
-          <% } else { %>
-        <a href="/auth/signup">signup</a>
-        <a href="/auth/login">login</a>
+        <% } else { %>
+          <div class="col-sm-1"></div>
+          <a href="/auth/signup">signup</a>
+          <div class="col-sm-1"></div>
+          <a href="/auth/login">login</a>
+          <div class="col-sm-8"></div>
         <% } %>
       </nav>
     </header>
-    <div class="container">
-      <h1>sanity</h1>
-      <% include partials/alerts %>
-
+    <div class="container" style="text-align: center;">
+      <div class="col-sm-12">
+        <h1 style="margin-left: 30px;">sanity</h1>
+      </div>
+      <div class="col-sm-12">
+        <% include partials/alerts %>
+      </div>
       <%- body %>
     </div>
 

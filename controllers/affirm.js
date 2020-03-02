@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
-const axios = require('axios');
+
 
 // GET /affirm shows a random affirmation (or "no affirmations yet")
     router.get('/', (req, res) => {

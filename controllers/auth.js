@@ -21,7 +21,7 @@ router.post('/signup', (req, res) => {
       console.log('user created');
       passport.authenticate('local', {
         successRedirect: '/',
-        successFlash: 'Thanks for signing up!'
+        successFlash: 'thank you for joining us'
       })(req, res);
       // res.redirect('/');
     } else {
@@ -45,13 +45,13 @@ router.get('/login', (req, res) => {
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/auth/login',
-  successFlash: 'Welcome!',
+  successFlash: 'welcome',
   failureFlash: 'Invalid email or password'
 }));
 
 router.get('/logout', (req, res) => {
   req.logout();
-  req.flash('success', 'Smell ya later!');
+  req.flash('success', 'wishing you well');
   res.redirect('/');
 });
 

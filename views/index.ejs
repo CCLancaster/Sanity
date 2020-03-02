@@ -1,1 +1,35 @@
-<h3>Home</h3>
+<% if (currentUser) { %> 
+
+<div class="container row">
+    <div class="col-sm-1"></div>
+
+    <div class="well well-lg col-sm-5 justify-content-around" style="border: 1px black solid; margin: 50px 10px; text-align: center;">
+    <form method="GET" action="/laugh">laugh</form>
+    </div>
+
+    <div class="well well-lg col-sm-5 justify-content-around" style="border: 1px black solid; margin: 50px 10px; text-align: center;">
+      <form method="GET" action="/affirm">affirmations</form>
+    </div>
+</div> 
+
+<div class="container row">
+    <div class="col-sm-1" style="margin-top: 50px; margin-bottom: 100px;"></div>
+
+    <div class="well well-lg col-sm-5 justify-content-around" style="border: 1px black solid; margin: 50px 10px; text-align: center;">
+      <form method="GET" action="/breathe">breathe</form>
+    </div>
+
+    <div class="well well-lg col-sm-5 justify-content-around" style="border: 1px black solid; margin: 50px 10px; text-align: center;">
+      <form method="GET" action="/move">move</form>
+    </div>
+</div>
+
+<div class="container row">
+    <div class="well well-sm col-sm-12" style="border: 1px black solid; margin: 50px 10px; text-align: center;">
+      <form method="GET" action="/help">help</form>
+    </div>
+</div> 
+ 
+<% } else { %>
+
+<% } %>
