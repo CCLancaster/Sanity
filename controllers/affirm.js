@@ -69,6 +69,7 @@ const db = require('../models');
 
 // PUT /affirm/:id (update) updates specific affirm messsage
     router.put('/:id', (req, res) => {
+        console.log(req.params);
         db.selfAffirm.update( req.body.newAffirm, {
             where: { id: req.params.id}
         }).then(() => {
